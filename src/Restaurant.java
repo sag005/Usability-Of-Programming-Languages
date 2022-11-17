@@ -16,7 +16,7 @@ public class Restaurant {
     }
 
     private Table getTable(int guestCount) {
-        Table table = getAvailableTable();
+        Table table = getAvailableTable(guestCount);
         Server server = getAvailableServer();
         if (table == null || server == null) {
             return null;
@@ -27,17 +27,34 @@ public class Restaurant {
     }
 
     private Server getAvailableServer() {
-        Optional<Server> availableServerOption = this.servers.stream()
-                .filter(s -> s.getServingCapacity() > s.getTableServing().size())
-                .findFirst();
-        return availableServerOption.orElse(null);
+        for(Server server: this.servers){
+            if(server.getServingCapacity() > server.getTableServing().size()){
+                return server;
+            }
+        }
+        return null;
     }
 
-    private Table getAvailableTable() {
-        Optional<Table> availableTableOption = this.tables.stream()
-                .filter(Table::getAccessible)
-                .findFirst();
-        return availableTableOption.orElse(null);
+    private Table getAvailableTable(int guestCount) {
+        for(Table table: this.tables){
+            if(table.getAccessible() && guestCount<=table.getCapacity()) return table;
+        }
+        return null;
+    }
+
+    private Table getAvailableTableOptimal(int guestCount) {
+        int answer = Integer.MAX_VALUE;
+        Table optimalTable = null;
+
+        for(Table table: this.tables){
+            if(table.getAccessible() && guestCount<=table.getCapacity()){
+                if(table.getCapacity()<answer){
+                    answer = table.getCapacity();
+                    optimalTable = table;
+                }
+            }
+        }
+        return optimalTable;
     }
 
     private Boolean collectTableBills() {
