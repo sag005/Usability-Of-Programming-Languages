@@ -4,7 +4,7 @@ import java.util.List;
 public class Table {
     private Server server;
     private final int tableNumber;
-    private final int capacity;
+    private final Integer capacity;
     private float billAmount = 0;
     private List<MenuItem> pendingItemsToBeServed = new ArrayList<>();
     private List<MenuItem> alreadyServedItems = new ArrayList<>();
@@ -12,7 +12,7 @@ public class Table {
     private Boolean isAccessible;
 
 
-    public Table(int tableNumber, int capacity, float billAmount, ArrayList<MenuItem> pendingItemsToBeServed, ArrayList<MenuItem> alreadyServedItems, Boolean isAccessible, Menu menu) {
+    public Table(int tableNumber, Integer capacity, float billAmount, ArrayList<MenuItem> pendingItemsToBeServed, ArrayList<MenuItem> alreadyServedItems, Boolean isAccessible, Menu menu) {
         this.tableNumber = tableNumber;
         this.capacity = capacity;
         this.isAccessible = isAccessible;
@@ -31,7 +31,7 @@ public class Table {
         return tableNumber;
     }
 
-    public int getCapacity() {
+    public Integer getCapacity() {
         return capacity;
     }
 
@@ -39,8 +39,12 @@ public class Table {
         return billAmount;
     }
 
-    public void setBillAmount(float billAmount) {
-        this.billAmount = billAmount;
+    public void generateBill() {
+        if (pendingItemsToBeServed.isEmpty()) {
+            this.billAmount = alreadyServedItems.stream()
+                    .map(MenuItem::getPrice)
+                    .reduce((float) 0, Float::sum);
+        }
     }
 
     public List<MenuItem> getPendingItemsToBeServed() {

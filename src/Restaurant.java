@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Optional;
 
 public class Restaurant {
@@ -16,7 +17,7 @@ public class Restaurant {
     }
 
     private Table getTable(int guestCount) {
-        Table table = getAvailableTable();
+        Table table = getAvailableTable(guestCount);
         Server server = getAvailableServer();
         if (table == null || server == null) {
             return null;
@@ -33,10 +34,19 @@ public class Restaurant {
         return availableServerOption.orElse(null);
     }
 
-    private Table getAvailableTable() {
+    private Table getAvailableTable(int guestCount) {
         Optional<Table> availableTableOption = this.tables.stream()
                 .filter(Table::getAccessible)
+                .filter(t -> t.getCapacity() >= guestCount)
                 .findFirst();
+        return availableTableOption.orElse(null);
+    }
+
+    private Table getAvailableTableOptimally(int guestCount) {
+        Optional<Table> availableTableOption = this.tables.stream()
+                .filter(Table::getAccessible)
+                .filter(t -> t.getCapacity() >= guestCount)
+                .min(Comparator.comparingInt(Table::getCapacity));
         return availableTableOption.orElse(null);
     }
 
