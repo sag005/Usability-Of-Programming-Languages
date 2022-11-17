@@ -5,7 +5,7 @@ public class Table {
     private Server server;
     private final int tableNumber;
     private final Integer capacity;
-    private float billAmount = 0;
+    private Float billAmount = 0.0f;
     private List<MenuItem> pendingItemsToBeServed = new ArrayList<>();
     private List<MenuItem> alreadyServedItems = new ArrayList<>();
     private Menu menu;
@@ -35,16 +35,18 @@ public class Table {
         return capacity;
     }
 
-    public float getBillAmount() {
+    public Float getBillAmount() {
         return billAmount;
     }
 
-    public void generateBill() {
+    public Boolean generateBill() {
         if (pendingItemsToBeServed.isEmpty()) {
             this.billAmount = alreadyServedItems.stream()
                     .map(MenuItem::getPrice)
                     .reduce((float) 0, Float::sum);
+            return Boolean.TRUE;
         }
+        return Boolean.FALSE;
     }
 
     public List<MenuItem> getPendingItemsToBeServed() {
