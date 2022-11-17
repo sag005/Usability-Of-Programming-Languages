@@ -1,29 +1,26 @@
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Server {
 
-    // private final ArrayList<Table> tableServing;
-    // private float tipAccumulated;
-    private Map<Integer, Double> tipsPerTable = new HashMap<>();
-    
 
-    // public Server(ArrayList<Table> tableServing, float tipAccumulated) {
-    //     this.tableServing = tableServing;
-    //     this.tipAccumulated = tipAccumulated;
-    // }
+    private Map<Integer, Tip> tableServing = new HashMap<>();
+    private final int servingCapacity;
 
-    // public ArrayList<Table> getTableServing() {
-    //     return tableServing;
-    // }
 
-    // public float getTipAccumulated() {
-    //     return tipAccumulated;
-    // }
+    public Server(int servingCapacity) {
+        this.servingCapacity = servingCapacity;
+    }
 
-    // public void setTipAccumulated(float tipAccumulated) {
-    //     this.tipAccumulated = tipAccumulated;
-    // }
+    public Map<Integer, Tip> getTableServing() {
+        return tableServing;
+    }
 
+    public void setTipsPerTable(Map<Integer, Tip> tableServing) {
+        this.tableServing = tableServing;
+    }
+
+    public int getServingCapacity() {
+        return servingCapacity;
+    }
 }
