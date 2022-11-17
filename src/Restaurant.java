@@ -6,6 +6,7 @@ public class Restaurant {
     private final ArrayList<Server> servers;
 
     private ArrayList<Table> tables;
+    private float moneyMade = 0;
 
     public Restaurant(ArrayList<Chef> chefs, ArrayList<Menu> menus, ArrayList<Server> servers, ArrayList<Table> tables) {
         this.chefs = chefs;
@@ -13,6 +14,16 @@ public class Restaurant {
         this.servers = servers;
         this.tables = tables;
     }
+
+    private Boolean getTable(int guestCount){
+        return true;
+    }
+
+    private Boolean collectTableBills(){
+        // Update this.moneyMade 
+        return true;
+    }
+
 
 
 }
