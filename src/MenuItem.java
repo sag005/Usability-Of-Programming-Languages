@@ -1,7 +1,7 @@
 public class MenuItem {
     private final String name;
     private final ItemType itemType;
-    private final float price;
+    private final Float price;
     private final Boolean isSpeciality;
 
     private int tableNumber;
@@ -22,7 +22,7 @@ public class MenuItem {
         return itemType;
     }
 
-    public float getPrice() {
+    public Float getPrice() {
         return price;
     }
 

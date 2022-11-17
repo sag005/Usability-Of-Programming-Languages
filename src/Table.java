@@ -5,7 +5,7 @@ public class Table {
     private Server server;
     private final int tableNumber;
     private final int capacity;
-    private float billAmount = 0;
+    private Float billAmount;
     private List<MenuItem> pendingItemsToBeServed = new ArrayList<>();
     private List<MenuItem> alreadyServedItems = new ArrayList<>();
     private Menu menu;
@@ -35,12 +35,20 @@ public class Table {
         return capacity;
     }
 
-    public float getBillAmount() {
+    public Float getBillAmount() {
         return billAmount;
     }
 
-    public void setBillAmount(float billAmount) {
-        this.billAmount = billAmount;
+    public Boolean generateBill() {
+        if (pendingItemsToBeServed.isEmpty()) {
+            Float sum = 0.0f;
+            for(MenuItem item: alreadyServedItems){
+                sum += item.getPrice();
+            }
+            this.billAmount = sum;
+            return true;
+        }
+        return false;
     }
 
     public List<MenuItem> getPendingItemsToBeServed() {
