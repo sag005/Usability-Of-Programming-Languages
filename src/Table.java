@@ -39,6 +39,7 @@ public class Table {
         return billAmount;
     }
 
+    // Implement the below function to generate bill for already served items.
     public Boolean generateBill() {
         if (pendingItemsToBeServed.isEmpty()) {
             Float sum = 0.0f;

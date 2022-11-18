@@ -15,7 +15,7 @@ public class Restaurant {
         this.tables = tables;
     }
 
-    private Table getTable(int guestCount) {
+    public Table getTable(int guestCount) {
         Table table = getAvailableTable(guestCount);
         Server server = getAvailableServer();
         if (table == null || server == null) {
@@ -42,6 +42,7 @@ public class Restaurant {
         return null;
     }
 
+    // Implement this function using for loop. This should return a table if available else null.
     private Table getAvailableTableOptimal(int guestCount) {
         int answer = Integer.MAX_VALUE;
         Table optimalTable = null;
