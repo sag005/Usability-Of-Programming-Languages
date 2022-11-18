@@ -41,15 +41,7 @@ public class Table {
 
     // Implement the below function to generate bill for already served items.
     public Boolean generateBill() {
-        if (pendingItemsToBeServed.isEmpty()) {
-            Float sum = 0.0f;
-            for(MenuItem item: alreadyServedItems){
-                sum += item.getPrice();
-            }
-            this.billAmount = sum;
-            return true;
-        }
-        return false;
+        return true;
     }
 
     public List<MenuItem> getPendingItemsToBeServed() {

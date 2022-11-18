@@ -44,18 +44,7 @@ public class Restaurant {
 
     // Implement this function using for loop. This should return a table if available else null.
     private Table getAvailableTableOptimal(int guestCount) {
-        int answer = Integer.MAX_VALUE;
-        Table optimalTable = null;
-
-        for(Table table: this.tables){
-            if(table.getAccessible() && guestCount<=table.getCapacity()){
-                if(table.getCapacity()<answer){
-                    answer = table.getCapacity();
-                    optimalTable = table;
-                }
-            }
-        }
-        return optimalTable;
+        return null;
     }
 
     private Boolean collectTableBills() {
