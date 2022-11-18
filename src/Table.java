@@ -12,7 +12,7 @@ public class Table {
     private Boolean isAccessible;
 
 
-    public Table(int tableNumber, Integer capacity, float billAmount, ArrayList<MenuItem> pendingItemsToBeServed, ArrayList<MenuItem> alreadyServedItems, Boolean isAccessible, Menu menu) {
+    public Table(int tableNumber, Integer capacity, float billAmount, List<MenuItem> pendingItemsToBeServed, List<MenuItem> alreadyServedItems, Boolean isAccessible, Menu menu) {
         this.tableNumber = tableNumber;
         this.capacity = capacity;
         this.isAccessible = isAccessible;

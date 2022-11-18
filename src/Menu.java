@@ -1,13 +1,14 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Menu {
-    private ArrayList<MenuItem> menuItems;
+    private List<MenuItem> menuItems;
 
-    public Menu(ArrayList<MenuItem> menuItems) {
+    public Menu(List<MenuItem> menuItems) {
         this.menuItems = menuItems;
     }
 
-    public ArrayList<MenuItem> getDishes() {
+    public List<MenuItem> getDishes() {
         return menuItems;
     }
 

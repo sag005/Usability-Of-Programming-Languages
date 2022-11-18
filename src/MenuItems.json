@@ -1,0 +1,60 @@
+{
+  "menu_items": [
+    {
+      "name": "SHRIMP AND EGG WHITE FRITTATA",
+      "itemType": "non-veg",
+      "price": 24.34,
+      "isSpeciality": "true",
+      "tableNumber": -1
+    },
+    {
+      "name": "BREAKFAST BURRITO",
+      "itemType": "non-veg",
+      "price": 12.21,
+      "isSpeciality": "False",
+      "tableNumber": -1
+    },
+    {
+      "name": "ZINFANDEL BRAISED SHORTRIBS HASH AND FRIED EGGS",
+      "itemType": "non-veg",
+      "price": 18.31,
+      "isSpeciality": "false",
+      "tableNumber": -1
+    },
+    {
+      "name": "CLASSIC BACON AND EGGS",
+      "itemType": "non-veg",
+      "price": 19.21,
+      "isSpeciality": "true",
+      "tableNumber": -1
+    },
+    {
+      "name": "VEG PIZZA",
+      "itemType": "veg",
+      "price": 17.12,
+      "isSpeciality": "True",
+      "tableNumber": -1
+    },
+    {
+      "name": "CRISPY ALMOND DUSTED CALAMARI",
+      "itemType": "non-veg",
+      "price": 22.11,
+      "isSpeciality": "true",
+      "tableNumber": -1
+    },
+    {
+      "name": "THE WINERY HOUSE SALAD",
+      "itemType": "veg",
+      "price": 16.14,
+      "isSpeciality": "False",
+      "tableNumber": -1
+    },
+    {
+      "name": "SHAVED BRUSSELS SPROUT AND BABY KALE SALAD",
+      "itemType": "veg",
+      "price": 19.05,
+      "isSpeciality": "true",
+      "tableNumber": -1
+    }
+  ]
+}

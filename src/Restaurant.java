@@ -1,22 +1,22 @@
-import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 import java.util.Optional;
 
 public class Restaurant {
-    private final ArrayList<Chef> chefs;
-    private final ArrayList<Menu> menus;
-    private final ArrayList<Server> servers;
-    private ArrayList<Table> tables;
+    private final Chef chef;
+    private final Menu menu;
+    private final List<Server> servers;
+    private List<Table> tables;
     private float moneyMade = 0;
 
-    public Restaurant(ArrayList<Chef> chefs, ArrayList<Menu> menus, ArrayList<Server> servers, ArrayList<Table> tables) {
-        this.chefs = chefs;
-        this.menus = menus;
+    public Restaurant(Chef chef, Menu menu, List<Server> servers, List<Table> tables) {
+        this.chef = chef;
+        this.menu = menu;
         this.servers = servers;
         this.tables = tables;
     }
 
-    private Table getTable(int guestCount) {
+    public Table getTable(int guestCount) {
         Table table = getAvailableTable(guestCount);
         Server server = getAvailableServer();
         if (table == null || server == null) {
