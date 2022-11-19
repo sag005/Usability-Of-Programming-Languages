@@ -1,7 +1,7 @@
-##Tasks
+## Tasks
 Observation/code explanation tasks: Please go through the whole code base to get an understanding of it. Afterwards, specifically go through the code in Restaurant.java, methods "getTable", "getAvailableTable", "getAvailableServer" and write a brief description of what the methods are doing.
 
-##Coding/modifying tasks
+## Coding/modifying tasks
 
 Get the first table optimally: Implement the function getAvailableTableOptimal() in such a way that it returns a table whose capacity is just greater than the guest count.
 Reduce already served items to get final bill amount: Implement the function generateBill() in Table.java.
