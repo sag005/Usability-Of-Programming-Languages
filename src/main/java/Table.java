@@ -1,3 +1,5 @@
+package main.java;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +19,26 @@ public class Table {
         this.capacity = capacity;
         this.isAccessible = isAccessible;
         this.menu = menu;
+    }
+
+    public void orderItem(MenuItem menuItem) throws CloneNotSupportedException {
+        MenuItem itemOrdered = (MenuItem) menuItem.clone();
+        itemOrdered.setTableNumber(this.getTableNumber());
+        this.getPendingItemsToBeServed().add(itemOrdered);
+    }
+
+    public void orderMultipleItems(List<MenuItem> menuItems) throws CloneNotSupportedException {
+        menuItems.forEach(item -> {
+            MenuItem itemOrdered = null;
+            try {
+                itemOrdered = (MenuItem) item.clone();
+            } catch (CloneNotSupportedException e) {
+                throw new RuntimeException(e);
+            }
+            itemOrdered.setTableNumber(this.getTableNumber());
+            this.getPendingItemsToBeServed().add(itemOrdered);
+        });
+
     }
 
     public Server getServer() {
@@ -40,29 +62,34 @@ public class Table {
     }
 
     public Boolean generateBill() {
-        if (pendingItemsToBeServed.isEmpty()) {
+
+        if (pendingItemsToBeServed.isEmpty() && alreadyServedItems.size() > 0) {
             this.billAmount = alreadyServedItems.stream()
                     .map(MenuItem::getPrice)
                     .reduce((float) 0, Float::sum);
+            this.isAccessible = true;
+            this.alreadyServedItems = new ArrayList<>();
+            this.server = null;
             return Boolean.TRUE;
         }
-        return Boolean.FALSE;
+        throw new RuntimeException(
+                "Cannot generate bill as the pending items are still not served or you have not ordered anything!");
     }
 
     public List<MenuItem> getPendingItemsToBeServed() {
         return pendingItemsToBeServed;
     }
 
-    public void setPendingItemsToBeServed(List<MenuItem> pendingItemsToBeServed) {
-        this.pendingItemsToBeServed = pendingItemsToBeServed;
+    public void addToPendingItemsToBeServed(MenuItem pendingItemToBeServed) {
+        this.pendingItemsToBeServed.add(pendingItemToBeServed);
     }
 
     public List<MenuItem> getAlreadyServedItems() {
         return alreadyServedItems;
     }
 
-    public void setAlreadyServedItems(List<MenuItem> alreadyServedItems) {
-        this.alreadyServedItems = alreadyServedItems;
+    public void addToAlreadyServedItems(MenuItem alreadyServedItem) {
+        this.alreadyServedItems.add(alreadyServedItem);
     }
 
     public Menu getMenu() {
