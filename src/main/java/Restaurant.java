@@ -1,9 +1,7 @@
 package main.java;
 
-import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class Restaurant {
@@ -30,34 +28,43 @@ public class Restaurant {
     }
 
     private Server getAvailableServer() {
-        Optional<Server> availableServerOption = this.servers.stream()
-                .filter(s -> s.getServingCapacity() > s.getTableServing().size())
-                .findFirst();
-        return availableServerOption.orElse(null);
+        for(Server server: this.servers){
+            if(server.getServingCapacity() > server.getTableServing().size()){
+                return server;
+            }
+        }
+        return null;
     }
 
     private Table getAvailableTable(int guestCount) {
-        Optional<Table> availableTableOption = this.tables.stream()
-                .filter(Table::getAccessible)
-                .filter(t -> t.getCapacity() >= guestCount)
-                .findFirst();
-        return availableTableOption.orElse(null);
+        for(Table table: this.tables){
+            if(table.getAccessible() && guestCount<=table.getCapacity()) return table;
+        }
+        return null;
     }
 
     public Table getOptimalAvailableTable(int guestCount) {
-        Optional<Table> availableTableOption = this.tables.stream()
-                .filter(Table::getAccessible)
-                .filter(t -> t.getCapacity() >= guestCount)
-                .min(Comparator.comparingInt(Table::getCapacity));
-        return availableTableOption.orElse(null);
+        int answer = Integer.MAX_VALUE;
+        Table optimalTable = null;
+
+        for(Table table: this.tables){
+            if(table.getAccessible() && guestCount<=table.getCapacity()){
+                if(table.getCapacity()<answer){
+                    answer = table.getCapacity();
+                    optimalTable = table;
+                }
+            }
+        }
+        return optimalTable;
     }
 
     private Boolean collectTableBills() {
         // Update this.moneyMade
-        this.moneyMade = this.tables.stream()
-                .filter(t -> !t.getAccessible())
-                .map(Table::generateBill)
-                .reduce((float) 0, Float::sum);
+        for(Table table: this.tables){
+            if(!table.getAccessible()){
+                this.moneyMade += table.generateBill();
+            }
+        }
         return true;
     }
 

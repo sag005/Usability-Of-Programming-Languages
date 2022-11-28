@@ -62,16 +62,17 @@ public class Table {
     }
 
     public Float generateBill() {
-//        pendingItemsToBeServed.isEmpty() &&
         if (alreadyServedItems.size() > 0) {
-            this.billAmount = alreadyServedItems.stream()
-                    .map(MenuItem::getPrice)
-                    .reduce((float) 0, Float::sum);
+            //Update this.billAmount
+            Float sum = 0.0f;
+            for(MenuItem item: alreadyServedItems){
+                sum += item.getPrice();
+            }
+            this.billAmount = sum;
             this.isAccessible = true;
             this.alreadyServedItems = new ArrayList<>();
             this.server = null;
-//            return Boolean.TRUE;
-            return billAmount;
+            return this.billAmount;
         }
         throw new RuntimeException(
                 "Cannot generate bill as the pending items are still not served or you have not ordered anything!");

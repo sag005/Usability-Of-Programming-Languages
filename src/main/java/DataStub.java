@@ -16,7 +16,7 @@ public class DataStub {
     public static Menu getMenu() {
         ObjectMapper mapper = new ObjectMapper();
         try {
-            List<MenuItem> menuItems = mapper.readValue(Paths.get("src/main/java/MenuItems.json").toFile(), new TypeReference<List<MenuItem>>() {
+            List<MenuItem> menuItems = mapper.readValue(Paths.get("/Users/abhilash/courses_ucsd/usability of pl/proj/Usability-Of-Programming-Languages/src/main/java/MenuItems.json").toFile(), new TypeReference<List<MenuItem>>() {
             });
             return new Menu(menuItems);
         } catch (IOException e) {
