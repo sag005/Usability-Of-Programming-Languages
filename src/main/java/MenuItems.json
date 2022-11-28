@@ -1,0 +1,131 @@
+[
+  {
+    "name": "SHRIMP AND EGG WHITE FRITTATA",
+    "itemType": "non-veg",
+    "menuType": "lunch",
+    "price": 24.34,
+    "isSpeciality": "true",
+    "tableNumber": -1
+  },
+  {
+    "name": "BREAKFAST BURRITO",
+    "itemType": "non-veg",
+    "menuType": "breakfast",
+    "price": 12.21,
+    "isSpeciality": "False",
+    "tableNumber": -1
+  },
+  {
+    "name": "ZINFANDEL BRAISED SHORTRIBS HASH AND FRIED EGGS",
+    "itemType": "non-veg",
+    "menuType": "brunch",
+    "price": 18.31,
+    "isSpeciality": "false",
+    "tableNumber": -1
+  },
+  {
+    "name": "CLASSIC BACON AND EGGS",
+    "itemType": "non-veg",
+    "menuType": "brunch",
+    "price": 19.21,
+    "isSpeciality": "true",
+    "tableNumber": -1
+  },
+  {
+    "name": "VEG PIZZA",
+    "itemType": "veg",
+    "menuType": "lunch",
+    "price": 17.12,
+    "isSpeciality": "True",
+    "tableNumber": -1
+  },
+  {
+    "name": "CRISPY ALMOND DUSTED CALAMARI",
+    "itemType": "non-veg",
+    "menuType": "breakfast",
+    "price": 22.11,
+    "isSpeciality": "true",
+    "tableNumber": -1
+  },
+  {
+    "name": "THE WINERY HOUSE SALAD",
+    "itemType": "veg",
+    "menuType": "lunch",
+    "price": 16.14,
+    "isSpeciality": "False",
+    "tableNumber": -1
+  },
+  {
+    "name": "SHAVED BRUSSELS SPROUT AND BABY KALE SALAD",
+    "itemType": "veg",
+    "menuType": "breakfast",
+    "price": 19.05,
+    "isSpeciality": "true",
+    "tableNumber": -1
+  },
+  {
+    "name": "BLOOD ORANGE MIMOSA",
+    "itemType": "alcoholic",
+    "menuType": "drinks",
+    "price": 11.25,
+    "isSpeciality": "true",
+    "tableNumber": -1
+  },
+  {
+    "name": "SNOOZEBERRY CEREAL MILK",
+    "itemType": "non-alcoholic",
+    "menuType": "drinks",
+    "price": 9.75,
+    "isSpeciality": "true",
+    "tableNumber": -1
+  },
+  {
+    "name": "LAVENDER LATTE",
+    "itemType": "non-alcoholic",
+    "menuType": "drinks",
+    "price": 5.75,
+    "isSpeciality": "true",
+    "tableNumber": -1
+  },
+  {
+    "name": "HONEY OAT MILK LATTE",
+    "itemType": "non-alcoholic",
+    "menuType": "drinks",
+    "price": 5.75,
+    "isSpeciality": "true",
+    "tableNumber": -1
+  },
+  {
+    "name": "POMEGRANATE & HIBISCUS SPRITZ",
+    "itemType": "non-alcoholic",
+    "menuType": "drinks",
+    "price": 10.50,
+    "isSpeciality": "true",
+    "tableNumber": -1
+  },
+  {
+    "name": "MORNING MARG",
+    "itemType": "non-alcoholic",
+    "menuType": "drinks",
+    "price": 8.95,
+    "isSpeciality": "true",
+    "tableNumber": -1
+  },
+  {
+    "name": "BREWMOSA",
+    "itemType": "non-alcoholic",
+    "menuType": "drinks",
+    "price": 6.95,
+    "isSpeciality": "true",
+    "tableNumber": -1
+  },
+  {
+    "name": "CHOICE MIMOSA",
+    "itemType": "alcoholic",
+    "menuType": "drinks",
+    "price": 8.50,
+    "isSpeciality": "true",
+    "tableNumber": -1
+  }
+]
+

@@ -1,3 +1,5 @@
+package main.java;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,4 +25,5 @@ public class Server {
     public int getServingCapacity() {
         return servingCapacity;
     }
+
 }
