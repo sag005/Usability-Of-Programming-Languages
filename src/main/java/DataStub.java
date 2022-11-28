@@ -20,7 +20,7 @@ public class DataStub {
             });
             return new Menu(menuItems);
         } catch (IOException e) {
-            System.out.println("haah");
+            System.out.println(e);
         }
         return null;
     }

@@ -53,7 +53,11 @@ public class Restaurant {
     }
 
     private Boolean collectTableBills() {
-        // Update this.moneyMade 
+        // Update this.moneyMade
+        this.moneyMade = this.tables.stream()
+                .filter(t -> !t.getAccessible())
+                .map(Table::generateBill)
+                .reduce((float) 0, Float::sum);
         return true;
     }
 
@@ -92,6 +96,7 @@ public class Restaurant {
     }
 
     public float getMoneyMade() {
+        this.collectTableBills();
         return moneyMade;
     }
 }

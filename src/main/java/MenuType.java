@@ -6,7 +6,7 @@ public enum MenuType {
     BREAKFAST("breakfast"),
     LUNCH("lunch"),
     BRUNCH("brunch"),
-    DRINKS("drinks ");
+    DRINKS("drinks");
 
     private final String menuType;
 
