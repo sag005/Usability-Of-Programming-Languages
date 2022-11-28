@@ -44,7 +44,7 @@ public class Restaurant {
         return availableTableOption.orElse(null);
     }
 
-    public Table getAvailableTableOptimally(int guestCount) {
+    public Table getOptimalAvailableTable(int guestCount) {
         Optional<Table> availableTableOption = this.tables.stream()
                 .filter(Table::getAccessible)
                 .filter(t -> t.getCapacity() >= guestCount)

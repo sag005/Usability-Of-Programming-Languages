@@ -10,7 +10,7 @@ import java.util.Objects;
 public class TasksTest {
 
     @Test
-    public void getOptimalTable() throws CloneNotSupportedException {
+    public void getOptimalTable() {
         Menu menu = DataStub.getMenu();
         List<Table> all_tables = DataStub.getTables();
         List<Server> all_servers = DataStub.getServers();
@@ -21,7 +21,7 @@ public class TasksTest {
                 all_tables
         );
 
-        Table availableTable = restaurant.getAvailableTableOptimally(4);
+        Table availableTable = restaurant.getOptimalAvailableTable(4);
         assert availableTable.equals(all_tables.get(1));
     }
 
@@ -48,10 +48,8 @@ public class TasksTest {
         table.addToAlreadyServedItems(Objects.requireNonNull(menu).getDishes().get(6));
 
 
-//        Boolean aBoolean = table.generateBill();
         Float billAmount = table.generateBill();
 
-//        assert aBoolean.equals(Boolean.TRUE);
         assert billAmount.equals(107.33f);
     }
 

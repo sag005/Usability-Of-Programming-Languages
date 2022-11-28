@@ -11,7 +11,6 @@ public enum MenuType {
     private final String menuType;
 
     MenuType(String menuType) {
-
         this.menuType = menuType;
     }
 

@@ -62,7 +62,7 @@ public class DataStub {
     }
 
     public static Table getFriendTableStub(Restaurant restaurant, Integer guestCount) {
-        Table friendTable = restaurant.getAvailableTableOptimally(guestCount);
+        Table friendTable = restaurant.getOptimalAvailableTable(guestCount);
         friendTable.addToAlreadyServedItems(restaurant.getMenu().getDishes().get(0));
         friendTable.addToAlreadyServedItems(restaurant.getMenu().getDishes().get(1));
         friendTable.addToAlreadyServedItems(restaurant.getMenu().getDishes().get(2));
