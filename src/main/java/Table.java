@@ -64,6 +64,9 @@ public class Table {
     public Float generateBill() {
         if (pendingItemsToBeServed.isEmpty() && alreadyServedItems.size() > 0) {
             //write the code here
+            billAmount = alreadyServedItems.stream()
+                    .map(MenuItem::getPrice)
+                    .reduce(0.0f, Float::sum);
             this.isAccessible = true;
             this.alreadyServedItems = new ArrayList<>();
             this.server = null;

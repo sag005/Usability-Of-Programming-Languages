@@ -1,5 +1,6 @@
 package main.java;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -44,8 +45,13 @@ public class Restaurant {
     }
 
     public Table getOptimalAvailableTable(int guestCount) {
-        //write your code here
-        return null;
+        Table optimalTable = this.tables.stream()
+                .filter(Table::getAccessible)
+                .filter(t -> guestCount <= t.getCapacity())
+                .min(Comparator.comparingInt(Table::getCapacity))
+                .orElse(null);
+
+        return optimalTable;
     }
 
     private Boolean collectTableBills() {
@@ -63,12 +69,12 @@ public class Restaurant {
 
         Map<MenuItem, Float> allPendingItemsAcrossTables =
                 tableServing.keySet().parallelStream()
-                        .map(i -> this.tables.get(i))
+                        .map(i -> this.tables.get(i - 1))
                         .flatMap(t -> t.getPendingItemsToBeServed().stream())
                         .collect(Collectors.toMap(item -> item, MenuItem::getPrice, (p1, p2) -> p1));
 
         Map<MenuItem, Float> allServedItemsAcrossTables = tableServing.keySet().parallelStream()
-                .map(i -> this.tables.get(i))
+                .map(i -> this.tables.get(i - 1))
                 .flatMap(t -> t.getAlreadyServedItems().stream())
                 .collect(Collectors.toMap(item -> item, MenuItem::getPrice, (p1, p2) -> p1));
 
