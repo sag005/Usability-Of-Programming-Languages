@@ -64,7 +64,9 @@ public class Table {
     public Float generateBill() {
         if (alreadyServedItems.size() > 0) {
             //Update this.billAmount
-
+            for(MenuItem Item: alreadyServedItems) {
+                this.billAmount += Item.getPrice();
+            }
             this.isAccessible = true;
             this.alreadyServedItems = new ArrayList<>();
             this.server = null;

@@ -47,7 +47,13 @@ public class Restaurant {
         int answer = Integer.MAX_VALUE;
         Table optimalTable = null;
         //Implement code here
-
+        int minCap = -1;
+        for(Table table: this.tables) {
+            if(table.getAccessible() && guestCount<=table.getCapacity() && answer>(table.getCapacity() - guestCount)) {
+                answer = table.getCapacity() - guestCount;
+                optimalTable = table;
+            }
+        }
         return optimalTable;
     }
 
