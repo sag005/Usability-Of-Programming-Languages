@@ -133,7 +133,7 @@ public class Main {
          * We need your help to carry out this task. Help us write below code in order to merge the two tables.
          * */
 
-        Table friendTable = DataStub.getFriendTableStub(restaurant, 3);
+//        Table friendTable = DataStub.getFriendTableStub(restaurant, 3);
 
         /**
          * Logical requirements:

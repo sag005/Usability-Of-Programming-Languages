@@ -68,17 +68,19 @@ public class Restaurant {
         return true;
     }
 
-    private Double getEstimatedTipForServer(Server server) {
+    public Double getEstimatedTipForServer(Server server) {
+        //
         Map<Integer, Tip> tableServing = server.getTableServing();
+
         Map<MenuItem, Float> allPendingItemsAcrossTables = tableServing.keySet().parallelStream()
                 .map(i -> this.tables.get(i))
                 .flatMap(t -> t.getPendingItemsToBeServed().stream())
-                .collect(Collectors.toMap(item -> item, MenuItem::getPrice));
+                .collect(Collectors.toMap(item -> item, MenuItem::getPrice, (p1, p2) -> p1));
 
         Map<MenuItem, Float> allServedItemsAcrossTables = tableServing.keySet().parallelStream()
                 .map(i -> this.tables.get(i))
                 .flatMap(t -> t.getAlreadyServedItems().stream())
-                .collect(Collectors.toMap(item -> item, MenuItem::getPrice));
+                .collect(Collectors.toMap(item -> item, MenuItem::getPrice, (p1, p2) -> p1));
 
         Double tipFromPendingItems = allPendingItemsAcrossTables.values().stream()
                 .map(p -> p * .1)
@@ -89,6 +91,7 @@ public class Restaurant {
 
         return tipFromServedItems + tipFromPendingItems;
     }
+
 
     public Menu getMenu() {
         return menu;

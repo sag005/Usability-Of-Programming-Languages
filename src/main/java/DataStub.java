@@ -8,8 +8,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
-import java.util.stream.IntStream;
+import java.util.Objects;
 
 public class DataStub {
 
@@ -51,28 +50,65 @@ public class DataStub {
         return all_servers;
     }
 
-    public static void populateTableWithRandomFood(Table table) {
-        List<MenuItem> dishes = table.getMenu().getDishes();
-
-        IntStream ints = new Random().ints(5, 0, 11);
-        ints.asLongStream().forEach(i -> table.addToPendingItemsToBeServed(dishes.get((int) i)));
-
-        ints = new Random().ints(5, 0, 11);
-        ints.asLongStream().forEach(i -> table.addToAlreadyServedItems(dishes.get((int) i)));
-    }
-
-    public static Table getFriendTableStub(Restaurant restaurant, Integer guestCount) {
+    public static Table getTableStub(Restaurant restaurant, Integer guestCount) {
         Table friendTable = restaurant.getOptimalAvailableTable(guestCount);
         friendTable.addToAlreadyServedItems(restaurant.getMenu().getDishes().get(0));
         friendTable.addToAlreadyServedItems(restaurant.getMenu().getDishes().get(1));
         friendTable.addToAlreadyServedItems(restaurant.getMenu().getDishes().get(2));
 
-        friendTable.addToPendingItemsToBeServed(restaurant.getMenu().getDishes().get(3));
-        friendTable.addToPendingItemsToBeServed(restaurant.getMenu().getDishes().get(4));
-        friendTable.addToPendingItemsToBeServed(restaurant.getMenu().getDishes().get(5));
-        friendTable.addToPendingItemsToBeServed(restaurant.getMenu().getDishes().get(6));
+        friendTable.addToAlreadyServedItems(restaurant.getMenu().getDishes().get(3));
+        friendTable.addToAlreadyServedItems(restaurant.getMenu().getDishes().get(4));
+        friendTable.addToAlreadyServedItems(restaurant.getMenu().getDishes().get(5));
+        friendTable.addToAlreadyServedItems(restaurant.getMenu().getDishes().get(6));
 
         return friendTable;
+
+    }
+
+    public static Server getServerForTipEstimation(Restaurant restaurant) {
+        Server server = restaurant.getServers().get(2);
+        server.getTableServing().put(1, new Tip(0.0));
+        server.getTableServing().put(2, new Tip(0.0));
+        server.getTableServing().put(3, new Tip(0.0));
+
+        List<Table> all_tables = restaurant.getTables();
+        all_tables.get(0).addToPendingItemsToBeServed(restaurant.getMenu().getDishes().get(0));
+        all_tables.get(0).addToAlreadyServedItems(restaurant.getMenu().getDishes().get(4));
+        all_tables.get(0).addToAlreadyServedItems(restaurant.getMenu().getDishes().get(2));
+
+        all_tables.get(1).addToPendingItemsToBeServed(restaurant.getMenu().getDishes().get(1));
+        all_tables.get(1).addToAlreadyServedItems(restaurant.getMenu().getDishes().get(2));
+
+        all_tables.get(2).addToPendingItemsToBeServed(restaurant.getMenu().getDishes().get(3));
+        all_tables.get(2).addToPendingItemsToBeServed(restaurant.getMenu().getDishes().get(1));
+        all_tables.get(2).addToAlreadyServedItems(restaurant.getMenu().getDishes().get(0));
+
+        return server;
+    }
+
+    public static void setupTablesForRevenueGeneration(Restaurant restaurant) throws CloneNotSupportedException {
+        List<Table> all_tables = restaurant.getTables();
+        Menu menu = restaurant.getMenu();
+        Table table1 = all_tables.get(0);
+        table1.orderItem(Objects.requireNonNull(menu).getDishes().get(0));
+        table1.orderItem(Objects.requireNonNull(menu).getDishes().get(1));
+        table1.orderItem(Objects.requireNonNull(menu).getDishes().get(2));
+        table1.orderItem(Objects.requireNonNull(menu).getDishes().get(3));
+        table1.orderItem(Objects.requireNonNull(menu).getDishes().get(4));
+        table1.orderItem(Objects.requireNonNull(menu).getDishes().get(6));
+
+        table1.addToAlreadyServedItems(Objects.requireNonNull(menu).getDishes().get(0));
+        table1.addToAlreadyServedItems(Objects.requireNonNull(menu).getDishes().get(1));
+        table1.addToAlreadyServedItems(Objects.requireNonNull(menu).getDishes().get(2));
+        table1.addToAlreadyServedItems(Objects.requireNonNull(menu).getDishes().get(3));
+        table1.addToAlreadyServedItems(Objects.requireNonNull(menu).getDishes().get(4));
+        table1.addToAlreadyServedItems(Objects.requireNonNull(menu).getDishes().get(6));
+        table1.setAccessible(Boolean.FALSE);
+
+        Table table2 = all_tables.get(1);
+        table2.orderItem(Objects.requireNonNull(menu).getDishes().get(0));
+        table2.addToAlreadyServedItems(Objects.requireNonNull(menu).getDishes().get(0));
+        table2.setAccessible(Boolean.FALSE);
 
     }
 }
