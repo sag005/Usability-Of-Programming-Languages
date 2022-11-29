@@ -61,10 +61,11 @@ public class Restaurant {
         //
         Map<Integer, Tip> tableServing = server.getTableServing();
 
-        Map<MenuItem, Float> allPendingItemsAcrossTables = tableServing.keySet().parallelStream()
-                .map(i -> this.tables.get(i))
-                .flatMap(t -> t.getPendingItemsToBeServed().stream())
-                .collect(Collectors.toMap(item -> item, MenuItem::getPrice, (p1, p2) -> p1));
+        Map<MenuItem, Float> allPendingItemsAcrossTables =
+                tableServing.keySet().parallelStream()
+                        .map(i -> this.tables.get(i))
+                        .flatMap(t -> t.getPendingItemsToBeServed().stream())
+                        .collect(Collectors.toMap(item -> item, MenuItem::getPrice, (p1, p2) -> p1));
 
         Map<MenuItem, Float> allServedItemsAcrossTables = tableServing.keySet().parallelStream()
                 .map(i -> this.tables.get(i))

@@ -34,7 +34,6 @@ public class ObserveAndArticulateTask {
          * we have placed order on your behalf. You have to decipher
          * what have we ordered for you based on the logic implemented below.
          *
-         *
          * Please think out loud when you decipher it!
          *
          * */
@@ -76,6 +75,5 @@ public class ObserveAndArticulateTask {
                         .filter(i -> i.getDishType().equals(ItemType.NON_ALCOHOLIC))
                         .findFirst()
                         .orElse(null)));
-
     }
 }

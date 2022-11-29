@@ -43,7 +43,7 @@ public class BugFixTest {
     public void testGenerateEstimatedServerTips() {
         Server serverForTipEstimation = DataStub.getServerForTipEstimation(restaurant);
         Double estimatedTipForServer = restaurant.getEstimatedTipForServer(serverForTipEstimation);
-        assert estimatedTipForServer.equals(8.627999877929687);
+        assert estimatedTipForServer.equals(8.668929687);
     }
 
 }
