@@ -27,15 +27,19 @@ public class CodeCompletionTask {
 
     /**
      * Welcome to Restaurant 291.
-     * We have a variety of food items, some are our speciality. You can access the list via {@link Menu} option.
+     * We have a variety of food items, some are our speciality.
+     * You can access the list via {@link Menu} option.
      * We provide support different operations such as - orderFood, generateBill, mergeTables.
      * Enjoy your meal!!
      * */
 
     /**
      * To get started you need to ask for a {@link Table}.
-     * If the {@link Table} is available we would provide you with one {@link Server} and one {@link Menu}
+     * If the {@link Table} is available we would provide you with one {@link Server} and
+     * one {@link Menu}
+     * <p>
      * But we cannot provide you table just like that, we have to optimize our seating arrangement.
+     * <p>
      * Therefore, we need your help to enhance our functionality to assign table to customers
      * based on customer count.
      * <p>

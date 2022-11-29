@@ -34,6 +34,9 @@ public class ObserveAndArticulateTask {
          * we have placed order on your behalf. You have to decipher
          * what have we ordered for you based on the logic implemented below.
          *
+         * For instance when you go to a restaurant you narrow down your search based on
+         * certain criteria like VEG or NON VEG, LUNCH or BRUNCH, WINE OR COFFEE
+         * So this task is on similar lines.
          *
          * Please think out loud when you decipher it!
          *
