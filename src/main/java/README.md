@@ -13,12 +13,10 @@ getAvailableServer:
 
 Coding/modifying tasks:
 
-1. Get the first table optimally: Implement the function getOptimalAvailableTable() in such a way that it returns a
+1. Get the optimal table available: Implement the function getOptimalAvailableTable() in such a way that it returns a
    table whose capacity is just greater than the guest count.
 2. Reduce already served items to get final bill amount: Implement the function generateBill() in Table.java.
 3. Reduce all the tables to get final money made by the restaurant by calculating all the table's generateBill() and
    summing up.
    Implement the function collectTableBills()
-
- Bug Fix task:
 
