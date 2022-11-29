@@ -62,15 +62,11 @@ public class Table {
     }
 
     public Float generateBill() {
-//        pendingItemsToBeServed.isEmpty() &&
-        if (alreadyServedItems.size() > 0) {
-            this.billAmount = alreadyServedItems.stream()
-                    .map(MenuItem::getPrice)
-                    .reduce((float) 0, Float::sum);
+        if (pendingItemsToBeServed.isEmpty() && alreadyServedItems.size() > 0) {
+            //write the code here
             this.isAccessible = true;
             this.alreadyServedItems = new ArrayList<>();
             this.server = null;
-//            return Boolean.TRUE;
             return billAmount;
         }
         throw new RuntimeException(
