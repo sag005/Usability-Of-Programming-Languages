@@ -1,6 +1,5 @@
 package main.java;
 
-import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -45,11 +44,8 @@ public class Restaurant {
     }
 
     public Table getOptimalAvailableTable(int guestCount) {
-        Optional<Table> availableTableOption = this.tables.stream()
-                .filter(Table::getAccessible)
-                .filter(t -> t.getCapacity() >= guestCount)
-                .min(Comparator.comparingInt(Table::getCapacity));
-        return availableTableOption.orElse(null);
+        //write your code here
+        return null;
     }
 
     private Boolean collectTableBills() {
@@ -84,35 +80,6 @@ public class Restaurant {
 
         return tipFromServedItems + tipFromPendingItems;
     }
-
-
-    /*public Double gettEstimatedTipForServer(Server server) {
-        Map<Integer, Tip> tableServing = server.getTableServing();
-
-        Map<MenuItem, Double> allPendingItemsAcrossTables = tableServing.keySet().parallelStream()
-                .map(i -> this.tables.get(i))
-                .flatMap(t -> t.getPendingItemsToBeServed().stream())
-                .collect(Collectors.
-                        groupingBy(Function.identity(),
-                                Collectors.summingDouble(MenuItem::getPrice)));
-
-        Map<MenuItem, Double> allServedItemsAcrossTables = tableServing.keySet().parallelStream()
-                .map(i -> this.tables.get(i))
-                .flatMap(t -> t.getAlreadyServedItems().stream())
-                .collect(Collectors.
-                        groupingBy(Function.identity(),
-                                Collectors.summingDouble(MenuItem::getPrice)));
-
-        Double tipFromPendingItems = allPendingItemsAcrossTables.values().stream()
-                .map(p -> p * .1)
-                .reduce(0.0, Double::sum);
-        Double tipFromServedItems = allServedItemsAcrossTables.values().stream()
-                .map(p -> p * .1)
-                .reduce(0.0, Double::sum);
-
-        return tipFromServedItems + tipFromPendingItems;
-    }
-*/
 
     public Menu getMenu() {
         return menu;
