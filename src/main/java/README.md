@@ -19,3 +19,6 @@ Coding/modifying tasks:
 3. Reduce all the tables to get final money made by the restaurant by calculating all the table's generateBill() and
    summing up.
    Implement the function collectTableBills()
+
+ Bug Fix task:
+

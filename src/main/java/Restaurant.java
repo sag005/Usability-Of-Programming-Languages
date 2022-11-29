@@ -46,25 +46,14 @@ public class Restaurant {
     public Table getOptimalAvailableTable(int guestCount) {
         int answer = Integer.MAX_VALUE;
         Table optimalTable = null;
+        //Implement code here
 
-        for(Table table: this.tables){
-            if(table.getAccessible() && guestCount<=table.getCapacity()){
-                if(table.getCapacity()<answer){
-                    answer = table.getCapacity();
-                    optimalTable = table;
-                }
-            }
-        }
         return optimalTable;
     }
 
     private Boolean collectTableBills() {
         // Update this.moneyMade
-        for(Table table: this.tables){
-            if(!table.getAccessible()){
-                this.moneyMade += table.generateBill();
-            }
-        }
+
         return true;
     }
 
