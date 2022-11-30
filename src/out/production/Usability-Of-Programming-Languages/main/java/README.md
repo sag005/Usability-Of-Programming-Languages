@@ -7,15 +7,16 @@ getAvailableServer" and write a brief description of what you feel the methods a
 
 Description:
 
-getTable:
-getAvailableTable:
-getAvailableServer:
+getTable: Will find a table with the size depending on the number of guests and find a server as well. If the two exist, the function will assign the server found to that table and return the table otherwise return null.
+getAvailableTable: Will iterate through available tables and check if the table can support the number of guests that want this table and that the table is accessible and return that table. If none exist, then return null.
+getAvailableServer: Will find a server that hasn't reached their maximum in the number of tables they can serve and return the server. If none exist, then return null.
 
 Coding/modifying tasks:
 
-1. Get the first table optimally: Implement the function getOptimalAvailableTable() in such a way that it returns a
+1. Get the optimal table available: Implement the function getOptimalAvailableTable() in such a way that it returns a
    table whose capacity is just greater than the guest count.
 2. Reduce already served items to get final bill amount: Implement the function generateBill() in Table.java.
 3. Reduce all the tables to get final money made by the restaurant by calculating all the table's generateBill() and
    summing up.
    Implement the function collectTableBills()
+
